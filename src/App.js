@@ -11,35 +11,34 @@ const App = () => {
   const API_URL = 'https://itunes.apple.com/search?term='
 
   useEffect(() => {
-      if(search) {
-          const fetchData = async () => {
-              document.title = `${search} music`
-              const response = await fetch(API_URL + search)
-              const resData = await response.json()
-              if (resData.results.length > 0) {
-                  return setData(resData.results)
-              } else {
-                  return setMessage('Not Found.')
-              }
-          }
-          fetchData()
+    if(search) {
+      const fetchData = async () => {
+        document.title = `${search} music`
+        const response = await fetch(API_URL + search)
+        const resData = await response.json()
+        if (resData.results.length > 0) {
+          return setData(resData.results)
+        } else {
+          return setMessage('Not Found.')
+        }
       }
+      fetchData()
+    }
   }, [search])
 
   const handleSearch = (e, term) => {
-      e.preventDefault()
-      setSearch(term)
+    e.preventDefault()
+    setSearch(term)
   }
 
   return (
-      <div>
-          <SearchBar handleSearch={handleSearch} />
-          {message}
-          <Gallery data={data} />
-      </div>
+    <div>
+      <SearchBar handleSearch={handleSearch} />
+      {message}
+      <Gallery data={data} />
+      <button onClick={() => setSearch("")}>Clear</button>
+    </div>
   )
 }
 
 export default App
-
-
