@@ -1,4 +1,3 @@
-import './App.css';
 import { useEffect, useState } from 'react'
 import Gallery from './Components/Gallery'
 import SearchBar from './Components/SearchBar'
