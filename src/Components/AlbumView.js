@@ -28,7 +28,6 @@ const AlbumView = () => {
             </div>
         )
     })
-
     
     return (
         <div>

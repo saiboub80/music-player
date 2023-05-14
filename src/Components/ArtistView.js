@@ -18,7 +18,7 @@ function ArtistView() {
             setArtistData(albums)
         }
         fetchData()
-    }, [ id])
+    }, [id])
 
 
 
